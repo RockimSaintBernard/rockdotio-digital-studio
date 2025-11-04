@@ -27,9 +27,9 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 animate-fade-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Talk</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Ship Something</h2>
             <p className="text-lg text-muted-foreground">
-              Have a project in mind? We'd love to hear from you.
+              Got a technical challenge? Let's talk code.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about your technical requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required

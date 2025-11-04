@@ -6,25 +6,25 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-up">
               <h2 className="text-4xl md:text-5xl font-bold">
-                Building the Future,
-                <span className="block text-primary">One Project at a Time</span>
+                Built by Developers,
+                <span className="block text-primary">For Developers</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                At ROCK.IO, we believe in the power of innovation and creativity. Our team combines technical expertise with creative vision to deliver solutions that don't just meet expectations—they exceed them.
+                At ROCK.IO, we're obsessed with clean code, elegant architecture, and developer experience. We build tools and services that we'd want to use ourselves.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Whether you're a startup looking to make your mark or an established business ready to evolve, we're here to turn your ideas into reality.
+                From startups shipping MVPs to enterprise teams scaling products, we provide the technical foundation you need to move fast without breaking things.
               </p>
             </div>
 
             <div className="relative animate-fade-in">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-8 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="text-6xl font-bold text-primary">500+</div>
-                  <div className="text-xl text-foreground">Projects Delivered</div>
+                  <div className="text-6xl font-bold text-primary">10k+</div>
+                  <div className="text-xl text-foreground">Commits Shipped</div>
                   <div className="h-px w-16 bg-primary/50 mx-auto my-4" />
-                  <div className="text-4xl font-bold text-primary">98%</div>
-                  <div className="text-lg text-foreground">Client Satisfaction</div>
+                  <div className="text-4xl font-bold text-primary">99.9%</div>
+                  <div className="text-lg text-foreground">Uptime SLA</div>
                 </div>
               </div>
             </div>

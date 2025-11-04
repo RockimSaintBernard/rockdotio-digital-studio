@@ -24,14 +24,14 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10 text-center pt-20">
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-up">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Transform Your Digital
+            Build. Ship. Scale.
             <span className="block bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent">
-              Presence
+              Your Code, Elevated
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We build innovative solutions that drive growth. From cutting-edge websites to powerful automation, we turn your vision into reality.
+            Modern development tools and services built by developers, for developers. Ship faster with clean code and scalable architecture.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
@@ -41,7 +41,7 @@ const Hero = () => {
               onClick={scrollToContact}
               className="group"
             >
-              Start Your Project
+              Start Building
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -49,7 +49,7 @@ const Hero = () => {
               size="lg"
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Explore Services
+              View Tools
             </Button>
           </div>
         </div>

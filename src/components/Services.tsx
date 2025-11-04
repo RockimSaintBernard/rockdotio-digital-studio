@@ -1,26 +1,26 @@
-import { Code2, Search, Workflow, Smartphone } from "lucide-react";
+import { Code2, Terminal, Zap, Database } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
   {
     icon: Code2,
-    title: "Website Development",
-    description: "Custom websites built with modern technologies. Fast, responsive, and optimized for conversions.",
+    title: "Full-Stack Development",
+    description: "React, Node.js, TypeScript. Modern stack with clean architecture. Fast, maintainable, production-ready code.",
   },
   {
-    icon: Search,
-    title: "SEO Optimization",
-    description: "Boost your visibility and rank higher. Data-driven strategies that deliver measurable results.",
+    icon: Terminal,
+    title: "API Development",
+    description: "RESTful and GraphQL APIs. Scalable microservices. Comprehensive documentation and testing included.",
   },
   {
-    icon: Workflow,
-    title: "Automation",
-    description: "Streamline operations and save time. Intelligent automation solutions tailored to your workflow.",
+    icon: Zap,
+    title: "DevOps & Automation",
+    description: "CI/CD pipelines, containerization, cloud infrastructure. Automate deployments and scale with confidence.",
   },
   {
-    icon: Smartphone,
-    title: "Application Development",
-    description: "Powerful applications that scale. From concept to deployment, we build solutions that work.",
+    icon: Database,
+    title: "Database Architecture",
+    description: "PostgreSQL, MongoDB, Redis. Optimized queries, indexing strategies, and data modeling for performance.",
   },
 ];
 
@@ -29,9 +29,9 @@ const Services = () => {
     <section id="services" className="py-24 bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Developer Tools</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive solutions designed to elevate your business
+            Enterprise-grade development services with a focus on code quality and performance
           </p>
         </div>
 
