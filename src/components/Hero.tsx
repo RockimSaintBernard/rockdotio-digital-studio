@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-abstract.jpg";
 
 const Hero = () => {
@@ -9,32 +9,27 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-[hsl(220_85%_50%)] to-[hsl(220_80%_45%)]">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[hsl(var(--primary-glow))] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
-        <img
-          src={heroImage}
-          alt="Abstract technology background"
-          className="w-full h-full object-cover opacity-5"
-        />
-      </div>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
+      {/* Simple Blue Background */}
+      <div className="absolute inset-0 bg-primary" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 text-center pt-20">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-up">
-          <h1 className="text-6xl md:text-8xl font-extrabold leading-tight text-white drop-shadow-2xl">
-            Build. Ship. Scale.
-            <span className="block mt-4 text-white/95">
-              Your Code, Elevated
-            </span>
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-5xl mx-auto space-y-8 animate-fade-up">
+          <p className="text-sm md:text-base text-white/80 uppercase tracking-[0.3em] font-medium">
+            Modern Development Tools
+          </p>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white">
+            We help developers
+            <br />
+            build and ship faster
+            <br />
+            like seasoned pros
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto font-medium drop-shadow-lg">
-            Modern development tools and services built by developers, for developers. Ship faster with clean code and scalable architecture.
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            Unlike bloated frameworks that drag projects out for months, ROCK.IO will elevate your development workflow in weeks—with clean code and scalable architecture that actually makes sense for modern applications.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -59,15 +54,15 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/50 to-transparent z-10" />
-      
-      {/* Floating Code Blocks Animation */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-20 left-10 text-white/10 font-mono text-sm animate-fade-in">{'<dev>'}</div>
-        <div className="absolute top-40 right-20 text-white/10 font-mono text-sm animate-fade-in" style={{ animationDelay: '0.5s' }}>{'</>'}</div>
-        <div className="absolute bottom-40 left-1/4 text-white/10 font-mono text-sm animate-fade-in" style={{ animationDelay: '1s' }}>{'{ }'}</div>
-      </div>
+      {/* Scroll Down Indicator */}
+      <button
+        onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors group"
+        aria-label="Scroll down"
+      >
+        <span className="text-sm font-medium uppercase tracking-wider">Scroll</span>
+        <ChevronDown className="w-6 h-6 animate-bounce" />
+      </button>
     </section>
   );
 };
