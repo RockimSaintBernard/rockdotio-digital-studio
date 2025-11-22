@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-abstract.jpg";
+import { useTypingEffect } from "@/hooks/useTypingEffect";
 
 const Hero = () => {
+  const line1 = useTypingEffect("We help developers", 60, 300);
+  const line2 = useTypingEffect("build and ship faster", 60, 1500);
+  const line3 = useTypingEffect("like seasoned pros", 60, 2700);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     element?.scrollIntoView({ behavior: "smooth" });
@@ -20,12 +25,19 @@ const Hero = () => {
             Modern Development Tools
           </p>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white">
-            We help developers
-            <br />
-            build and ship faster
-            <br />
-            like seasoned pros
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-white min-h-[300px] md:min-h-[400px]">
+            <span className="block">
+              {line1.displayedText}
+              {!line1.isComplete && <span className="animate-pulse">|</span>}
+            </span>
+            <span className="block">
+              {line2.displayedText}
+              {line1.isComplete && !line2.isComplete && <span className="animate-pulse">|</span>}
+            </span>
+            <span className="block">
+              {line3.displayedText}
+              {line2.isComplete && !line3.isComplete && <span className="animate-pulse">|</span>}
+            </span>
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
