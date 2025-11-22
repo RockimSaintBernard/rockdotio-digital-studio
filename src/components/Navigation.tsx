@@ -25,7 +25,11 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <div className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent">
+          <div className={`text-3xl font-extrabold tracking-tight transition-all duration-300 ${
+            scrolled 
+              ? "bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent" 
+              : "text-white drop-shadow-lg"
+          }`}>
             ROCK.IO
           </div>
           
