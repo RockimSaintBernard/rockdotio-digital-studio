@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-primary" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      <div className="container mx-auto px-6 relative z-10 text-center pb-20">
         <div className="max-w-5xl mx-auto space-y-8 animate-fade-up">
           <p className="text-sm md:text-base text-white/80 uppercase tracking-[0.3em] font-medium">
             Modern Development Tools
@@ -44,12 +44,12 @@ const Hero = () => {
             Unlike bloated frameworks that drag projects out for months, ROCK.IO will elevate your development workflow in weeks—with clean code and scalable architecture that actually makes sense for modern applications.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 pb-4">
             <Button
               variant="default"
               size="lg"
               onClick={scrollToContact}
-              className="group bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-strong"
+              className="group bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-6 shadow-strong hover:shadow-[0_25px_60px_-15px_rgba(0,51,204,0.35)] transition-all"
             >
               Start Building
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -58,7 +58,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-lg px-8 py-6"
+              className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary font-bold text-lg px-8 py-6 transition-all"
             >
               View Tools
             </Button>
@@ -69,11 +69,11 @@ const Hero = () => {
       {/* Scroll Down Indicator */}
       <button
         onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors group"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors group cursor-pointer"
         aria-label="Scroll down"
       >
         <span className="text-sm font-medium uppercase tracking-wider">Scroll</span>
-        <ChevronDown className="w-6 h-6 animate-bounce" />
+        <ChevronDown className="w-6 h-6 animate-bounce group-hover:animate-none" />
       </button>
     </section>
   );
