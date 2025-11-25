@@ -33,10 +33,10 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-[var(--shadow-soft)] animate-scale-in">
+          <div className="bg-card backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-border shadow-[var(--shadow-medium)] animate-scale-in">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
+              <div className="space-y-3">
+                <label htmlFor="name" className="text-sm font-semibold flex items-center gap-2 text-foreground">
                   <MessageSquare className="h-4 w-4 text-primary" />
                   Name
                 </label>
@@ -46,12 +46,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-background"
+                  className="bg-background border-border focus:border-primary transition-colors h-12"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium flex items-center gap-2">
+              <div className="space-y-3">
+                <label htmlFor="email" className="text-sm font-semibold flex items-center gap-2 text-foreground">
                   <Mail className="h-4 w-4 text-primary" />
                   Email
                 </label>
@@ -62,12 +62,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-background"
+                  className="bg-background border-border focus:border-primary transition-colors h-12"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium flex items-center gap-2">
+              <div className="space-y-3">
+                <label htmlFor="message" className="text-sm font-semibold flex items-center gap-2 text-foreground">
                   <Send className="h-4 w-4 text-primary" />
                   Message
                 </label>
@@ -78,15 +78,14 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={6}
-                  className="bg-background resize-none"
+                  className="bg-background border-border focus:border-primary transition-colors resize-none"
                 />
               </div>
 
               <Button
                 type="submit"
-                variant="hero"
                 size="lg"
-                className="w-full"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[var(--shadow-medium)] hover:shadow-[var(--shadow-strong)] transition-all"
               >
                 Send Message
                 <Send className="ml-2 h-4 w-4" />
