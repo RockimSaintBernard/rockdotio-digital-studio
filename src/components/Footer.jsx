@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="py-12 border-t border-border bg-background">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-2xl font-bold bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent">
+          <Link 
+            to="/"
+            className="text-2xl font-bold bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent"
+          >
             ROCK.IO
-          </div>
+          </Link>
           
           <div className="text-sm text-muted-foreground">
             © 2024 ROCK.IO. All rights reserved.
@@ -24,12 +29,12 @@ const Footer = () => {
             >
               Terms
             </a>
-            <a
-              href="#"
+            <Link
+              to="/contact"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>
