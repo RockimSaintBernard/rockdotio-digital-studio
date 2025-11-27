@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,48 +16,61 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (isHomePage) {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
   };
+
+  // On non-home pages, always show scrolled style
+  const showScrolledStyle = scrolled || !isHomePage;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
+      showScrolledStyle 
         ? "bg-background/95 backdrop-blur-md border-b border-border shadow-soft" 
         : "bg-transparent"
     }`}>
       <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <div className={`text-3xl font-extrabold tracking-tight transition-all duration-300 ${
-            scrolled 
-              ? "bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent" 
-              : "text-white drop-shadow-lg"
-          }`}>
+          <Link 
+            to="/"
+            className={`text-3xl font-extrabold tracking-tight transition-all duration-300 ${
+              showScrolledStyle 
+                ? "bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent" 
+                : "text-white drop-shadow-lg"
+            }`}
+          >
             ROCK.IO
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("services")}
+            <Link
+              to="/tools"
               className={`text-base font-semibold transition-colors ${
-                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
-              }`}
+                showScrolledStyle ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
+              } ${location.pathname === "/tools" ? "text-primary" : ""}`}
             >
               Tools
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
+            </Link>
+            <Link
+              to="/projects"
               className={`text-base font-semibold transition-colors ${
-                scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
-              }`}
+                showScrolledStyle ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
+              } ${location.pathname === "/projects" ? "text-primary" : ""}`}
+            >
+              Projects
+            </Link>
+            <Link
+              to="/about"
+              className={`text-base font-semibold transition-colors ${
+                showScrolledStyle ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
+              } ${location.pathname === "/about" ? "text-primary" : ""}`}
             >
               About
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              size="sm"
-            >
-              Contact
+            </Link>
+            <Button asChild size="sm">
+              <Link to="/contact">Contact</Link>
             </Button>
           </div>
         </div>
