@@ -13,7 +13,7 @@ const Footer = () => {
             <img 
               src={logoBlue}
               alt="ROCK.IO Logo" 
-              className="h-10 md:h-12"
+              className="h-30 md:h-36"
             />
           </Link>
           
