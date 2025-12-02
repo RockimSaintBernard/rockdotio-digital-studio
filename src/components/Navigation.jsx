@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/rockim-logo-white.png";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,13 +36,17 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link 
             to="/"
-            className={`text-3xl font-extrabold tracking-tight transition-all duration-300 ${
-              showScrolledStyle 
-                ? "bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent" 
-                : "text-white drop-shadow-lg"
-            }`}
+            className="transition-all duration-300"
           >
-            ROCK.IO
+            <img 
+              src={logo} 
+              alt="ROCK.IO Logo" 
+              className={`h-8 transition-all duration-300 ${
+                showScrolledStyle 
+                  ? "brightness-100" 
+                  : "brightness-100 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
+              }`}
+            />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
