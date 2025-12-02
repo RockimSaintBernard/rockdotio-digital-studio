@@ -18,73 +18,112 @@ const Hero = () => {
       {/* Base Background */}
       <div className="absolute inset-0 bg-primary" />
       
-      {/* Circuit Board SVG Animation */}
-      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+      {/* Detailed Circuit Board SVG Pattern */}
+      <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <pattern id="circuitPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+            {/* Horizontal parallel traces */}
+            <g className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '0s' }}>
+              <line x1="0" y1="30" x2="60" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+              <line x1="0" y1="33" x2="60" y2="33" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+              <line x1="0" y1="36" x2="60" y2="36" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            </g>
+            
+            <g className="animate-pulse" style={{ animationDuration: '5s', animationDelay: '0.5s' }}>
+              <line x1="140" y1="30" x2="200" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+              <line x1="140" y1="33" x2="200" y2="33" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+              <line x1="140" y1="36" x2="200" y2="36" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            </g>
+            
+            {/* Vertical parallel traces */}
+            <g className="animate-pulse" style={{ animationDuration: '4.5s', animationDelay: '1s' }}>
+              <line x1="100" y1="0" x2="100" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+              <line x1="103" y1="0" x2="103" y2="50" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+              <line x1="106" y1="0" x2="106" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            </g>
+            
+            <g className="animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }}>
+              <line x1="100" y1="150" x2="100" y2="200" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+              <line x1="103" y1="150" x2="103" y2="200" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+              <line x1="106" y1="150" x2="106" y2="200" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            </g>
+            
+            {/* Curved connections */}
+            <path d="M 60 33 Q 80 33 100 50" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="none" 
+                  className="animate-pulse" style={{ animationDuration: '3s', animationDelay: '2s' }} />
+            <path d="M 100 50 Q 120 50 140 33" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" fill="none"
+                  className="animate-pulse" style={{ animationDuration: '3s', animationDelay: '2s' }} />
+            
+            {/* Circuit pads */}
+            <circle cx="60" cy="33" r="3" fill="rgba(255,255,255,0.5)" 
+                    className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '0s' }} />
+            <circle cx="140" cy="33" r="3" fill="rgba(255,255,255,0.5)"
+                    className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '1s' }} />
+            <circle cx="100" cy="50" r="3" fill="rgba(255,255,255,0.5)"
+                    className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '2s' }} />
+            <circle cx="100" cy="150" r="3" fill="rgba(255,255,255,0.5)"
+                    className="animate-pulse" style={{ animationDuration: '2s', animationDelay: '0.5s' }} />
+          </pattern>
+          
+          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(255,255,255,0)" />
             <stop offset="50%" stopColor="rgba(255,255,255,0.8)" />
             <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+            <animate attributeName="x1" from="-100%" to="100%" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="x2" from="0%" to="200%" dur="3s" repeatCount="indefinite" />
           </linearGradient>
         </defs>
         
-        {/* Horizontal Circuit Lines */}
-        <g className="animate-pulse" style={{ animationDuration: '3s' }}>
-          <line x1="0" y1="20%" x2="30%" y2="20%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="70%" y1="20%" x2="100%" y2="20%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="0" y1="40%" x2="40%" y2="40%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="60%" y1="40%" x2="100%" y2="40%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="0" y1="60%" x2="25%" y2="60%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="75%" y1="60%" x2="100%" y2="60%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="0" y1="80%" x2="35%" y2="80%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="65%" y1="80%" x2="100%" y2="80%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-        </g>
+        <rect width="100%" height="100%" fill="url(#circuitPattern)" />
         
-        {/* Vertical Circuit Lines */}
-        <g className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
-          <line x1="15%" y1="0" x2="15%" y2="30%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="15%" y1="70%" x2="15%" y2="100%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="35%" y1="0" x2="35%" y2="40%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="35%" y1="60%" x2="35%" y2="100%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="65%" y1="0" x2="65%" y2="35%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="65%" y1="65%" x2="65%" y2="100%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="85%" y1="0" x2="85%" y2="25%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-          <line x1="85%" y1="75%" x2="85%" y2="100%" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-        </g>
-        
-        {/* Circuit Nodes */}
-        <g>
-          <circle cx="15%" cy="20%" r="4" fill="rgba(255,255,255,0.6)" className="animate-pulse" style={{ animationDuration: '2s' }} />
-          <circle cx="35%" cy="40%" r="4" fill="rgba(255,255,255,0.6)" className="animate-pulse" style={{ animationDuration: '2.5s' }} />
-          <circle cx="65%" cy="60%" r="4" fill="rgba(255,255,255,0.6)" className="animate-pulse" style={{ animationDuration: '3s' }} />
-          <circle cx="85%" cy="80%" r="4" fill="rgba(255,255,255,0.6)" className="animate-pulse" style={{ animationDuration: '2.2s' }} />
+        {/* Animated data flow lines */}
+        <g opacity="0.6">
+          <line x1="0" y1="20%" x2="100%" y2="20%" stroke="url(#flowGradient)" strokeWidth="2" />
+          <line x1="0" y1="50%" x2="100%" y2="50%" stroke="url(#flowGradient)" strokeWidth="2" 
+                style={{ animationDelay: '1s' }} />
+          <line x1="0" y1="80%" x2="100%" y2="80%" stroke="url(#flowGradient)" strokeWidth="2"
+                style={{ animationDelay: '2s' }} />
         </g>
       </svg>
       
-      {/* Animated Energy Pulses */}
+      {/* Additional Circuit Layer with Different Pattern */}
+      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="circuitPattern2" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+            <g className="animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}>
+              <line x1="50" y1="150" x2="150" y2="150" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+              <line x1="50" y1="154" x2="150" y2="154" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+              <line x1="200" y1="150" x2="300" y2="150" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+              <line x1="200" y1="154" x2="300" y2="154" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            </g>
+            <g className="animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }}>
+              <line x1="150" y1="50" x2="150" y2="120" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+              <line x1="154" y1="50" x2="154" y2="120" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+              <line x1="150" y1="180" x2="150" y2="250" stroke="rgba(255,255,255,0.35)" strokeWidth="2" />
+              <line x1="154" y1="180" x2="154" y2="250" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+            </g>
+            <path d="M 150 120 Q 175 135 200 150" stroke="rgba(255,255,255,0.4)" strokeWidth="2" fill="none" />
+            <circle cx="150" cy="150" r="5" fill="rgba(255,255,255,0.6)" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#circuitPattern2)" />
+      </svg>
+      
+      {/* Animated Signal Pulses */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-white/60 shadow-[0_0_10px_2px_rgba(255,255,255,0.5)] animate-float"
+            className="absolute w-1.5 h-1.5 rounded-full bg-white/70 shadow-[0_0_15px_3px_rgba(255,255,255,0.6)] animate-float"
             style={{
-              left: `${(i % 4) * 25 + 10}%`,
-              top: `${Math.floor(i / 4) * 50 + 20}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${4 + i}s`
+              left: `${(i % 4) * 25 + Math.random() * 15}%`,
+              top: `${Math.floor(i / 4) * 33 + Math.random() * 20}%`,
+              animationDelay: `${i * 0.6}s`,
+              animationDuration: `${5 + (i % 3) * 2}s`
             }}
           />
         ))}
       </div>
-      
-      {/* Subtle Grid Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50" />
