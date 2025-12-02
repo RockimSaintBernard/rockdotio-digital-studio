@@ -2,11 +2,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-abstract.jpg";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const line1 = useTypingEffect("We help developers", 60, 300);
   const line2 = useTypingEffect("build and ship faster", 60, 1500);
   const line3 = useTypingEffect("like seasoned pros", 60, 2700);
+  
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -18,8 +30,12 @@ const Hero = () => {
       {/* Base Background */}
       <div className="absolute inset-0 bg-primary" />
       
-      {/* Detailed Circuit Board SVG Pattern */}
-      <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+      {/* Detailed Circuit Board SVG Pattern - Slowest layer */}
+      <svg 
+        className="absolute inset-0 w-full h-full opacity-30 transition-transform duration-0" 
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+      >
         <defs>
           <pattern id="circuitPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
             {/* Horizontal parallel traces */}
@@ -86,8 +102,12 @@ const Hero = () => {
         </g>
       </svg>
       
-      {/* Additional Circuit Layer with Different Pattern */}
-      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+      {/* Additional Circuit Layer with Different Pattern - Medium speed layer */}
+      <svg 
+        className="absolute inset-0 w-full h-full opacity-20 transition-transform duration-0" 
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      >
         <defs>
           <pattern id="circuitPattern2" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
             <g className="animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }}>
@@ -109,8 +129,11 @@ const Hero = () => {
         <rect width="100%" height="100%" fill="url(#circuitPattern2)" />
       </svg>
       
-      {/* Animated Signal Pulses */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated Signal Pulses - Fastest layer */}
+      <div 
+        className="absolute inset-0 overflow-hidden transition-transform duration-0"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
@@ -128,8 +151,10 @@ const Hero = () => {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50" />
 
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 text-center pb-20">
+      {/* Content - Stays fixed (no parallax) */}
+      <div 
+        className="container mx-auto px-6 relative z-10 text-center pb-20"
+      >
         <div className="max-w-5xl mx-auto space-y-8 animate-fade-up">
           <p className="text-sm md:text-base text-white/80 uppercase tracking-[0.3em] font-medium">
             Modern Development Tools
