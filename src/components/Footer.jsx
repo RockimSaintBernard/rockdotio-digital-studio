@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoBlue from "@/assets/rockim-logo-blue.jpg";
 
 const Footer = () => {
   return (
@@ -7,9 +8,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <Link 
             to="/"
-            className="text-2xl font-bold bg-gradient-to-r from-primary to-[hsl(var(--primary-glow))] bg-clip-text text-transparent"
+            className="flex items-center"
           >
-            ROCK.IO
+            <img 
+              src={logoBlue}
+              alt="ROCK.IO Logo" 
+              className="h-10 md:h-12"
+            />
           </Link>
           
           <div className="text-sm text-muted-foreground">

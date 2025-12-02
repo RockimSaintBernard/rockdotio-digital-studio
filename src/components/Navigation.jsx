@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/rockim-logo-white.png";
+import logoWhite from "@/assets/rockim-logo-white.png";
+import logoBlue from "@/assets/rockim-logo-blue.jpg";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -39,9 +40,9 @@ const Navigation = () => {
             className="transition-all duration-300"
           >
             <img 
-              src={logo} 
+              src={showScrolledStyle ? logoBlue : logoWhite}
               alt="ROCK.IO Logo" 
-              className={`h-8 transition-all duration-300 ${
+              className={`h-12 md:h-14 transition-all duration-300 ${
                 showScrolledStyle 
                   ? "brightness-100" 
                   : "brightness-100 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
