@@ -42,7 +42,7 @@ const Navigation = () => {
             <img 
               src={showScrolledStyle ? logoBlue : logoWhite}
               alt="ROCK.IO Logo" 
-              className={`h-36 md:h-42 transition-all duration-300 ${
+              className={`h-24 md:h-28 transition-all duration-300 ${
                 showScrolledStyle 
                   ? "brightness-100" 
                   : "brightness-100 drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
