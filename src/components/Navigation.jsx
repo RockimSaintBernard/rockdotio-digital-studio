@@ -85,8 +85,8 @@ const Navigation = () => {
 
           {/* Mobile Hamburger Button */}
           <button
-            className={`md:hidden p-2 transition-colors ${
-              showScrolledStyle ? "text-foreground" : "text-white"
+            className={`md:hidden p-2 transition-colors relative z-50 ${
+              mobileMenuOpen ? "text-foreground" : showScrolledStyle ? "text-foreground" : "text-white"
             }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
