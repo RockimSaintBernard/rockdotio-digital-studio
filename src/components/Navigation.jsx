@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import logoWhite from "@/assets/rockim-logo-white.png";
 import logoBlue from "@/assets/rockim-logo-blue.jpg";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -50,6 +52,7 @@ const Navigation = () => {
             />
           </Link>
           
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/tools"
@@ -77,6 +80,60 @@ const Navigation = () => {
             </Link>
             <Button asChild size="sm">
               <Link to="/contact">Contact</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            className={`md:hidden p-2 transition-colors ${
+              showScrolledStyle ? "text-foreground" : "text-white"
+            }`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed inset-0 top-0 z-40 transition-transform duration-300 ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="absolute inset-0 bg-background/95 backdrop-blur-md" />
+        <div className="relative flex flex-col h-full pt-24 px-6">
+          <Link
+            to="/tools"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`py-4 text-xl font-semibold border-b border-border transition-colors ${
+              location.pathname === "/tools" ? "text-primary" : "text-foreground/80 hover:text-primary"
+            }`}
+          >
+            Tools
+          </Link>
+          <Link
+            to="/projects"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`py-4 text-xl font-semibold border-b border-border transition-colors ${
+              location.pathname === "/projects" ? "text-primary" : "text-foreground/80 hover:text-primary"
+            }`}
+          >
+            Projects
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`py-4 text-xl font-semibold border-b border-border transition-colors ${
+              location.pathname === "/about" ? "text-primary" : "text-foreground/80 hover:text-primary"
+            }`}
+          >
+            About
+          </Link>
+          <div className="pt-6">
+            <Button asChild size="lg" className="w-full">
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             </Button>
           </div>
         </div>
